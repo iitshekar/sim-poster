@@ -1,8 +1,12 @@
-"""Posts one simulation a day to a Telegram channel, followed by a quiz.
+"""Posts the next NEW simulation to a Telegram channel, followed by a quiz.
 
-Settings come from environment variables (set as GitHub Secrets/Variables):
+Each simulation is posted once. posts.json is the queue: the first entry
+without a "posted" date goes out, then gets stamped with today's date.
+Add new simulations to the end of posts.json to keep the channel going.
+
+Settings (GitHub Secrets/Variables):
   TELEGRAM_BOT_TOKEN  the token from @BotFather (secret)
-  TELEGRAM_CHAT_ID    the channel, e.g. @iitshekar
+  TELEGRAM_CHAT_ID    the channel, e.g. @iitshekar_sims
   DRY_RUN=1           print instead of posting (for testing)
 """
 import datetime
@@ -11,12 +15,8 @@ import os
 import sys
 import urllib.request
 
-START = datetime.date(2026, 10, 7)  # day 0 of the rotation
-
-
-def pick(posts, today):
-    """Rotate through posts in order, one per day."""
-    return posts[(today - START).days % len(posts)]
+HERE = os.path.dirname(os.path.abspath(__file__))
+QUEUE = os.path.join(HERE, "posts.json")
 
 
 def api(token, method, payload):
@@ -52,13 +52,19 @@ def build(post):
 
 
 def main():
-    with open(os.path.join(os.path.dirname(__file__), "posts.json"), encoding="utf-8") as f:
+    with open(QUEUE, encoding="utf-8") as f:
         posts = json.load(f)
-    post = pick(posts, datetime.date.today())
+
+    waiting = [p for p in posts if not p.get("posted")]
+    if not waiting:
+        # Fail on purpose: GitHub emails you, which is your reminder to add a simulation.
+        sys.exit("Queue empty: no new simulation to post today. Add one to posts.json.")
+    post = waiting[0]
     text, poll = build(post)
 
     if os.environ.get("DRY_RUN") == "1":
         print(text, "\n", json.dumps(poll, ensure_ascii=False, indent=1))
+        print(f"\n{len(waiting) - 1} more waiting after this one.")
         return
 
     token = os.environ.get("TELEGRAM_BOT_TOKEN")
@@ -68,7 +74,12 @@ def main():
 
     api(token, "sendMessage", {"chat_id": chat, "text": text, "parse_mode": "HTML"})
     api(token, "sendPoll", {"chat_id": chat, **poll})
-    print(f"Posted: {post['title']}")
+
+    post["posted"] = datetime.date.today().isoformat()
+    with open(QUEUE, "w", encoding="utf-8") as f:
+        json.dump(posts, f, ensure_ascii=False, indent=2)
+        f.write("\n")
+    print(f"Posted: {post['title']}. {len(waiting) - 1} left in the queue.")
 
 
 if __name__ == "__main__":

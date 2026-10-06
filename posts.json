@@ -6,7 +6,12 @@
     "level": "KS3 Physics",
     "quiz": {
       "question": "A stone has a mass of 60 g. It raises the water in a cylinder from 20 mL to 44 mL. What is its density?",
-      "options": ["0.4 g/cm³", "2.5 g/cm³", "3.0 g/cm³", "1.4 g/cm³"],
+      "options": [
+        "0.4 g/cm³",
+        "2.5 g/cm³",
+        "3.0 g/cm³",
+        "1.4 g/cm³"
+      ],
       "correct": 1,
       "explanation": "Volume = 44 − 20 = 24 cm³. Density = 60 ÷ 24 = 2.5 g/cm³."
     }
@@ -18,7 +23,12 @@
     "level": "KS3 Biology",
     "quiz": {
       "question": "In which organ are most digested nutrients absorbed into the blood?",
-      "options": ["Stomach", "Small intestine", "Large intestine", "Oesophagus"],
+      "options": [
+        "Stomach",
+        "Small intestine",
+        "Large intestine",
+        "Oesophagus"
+      ],
       "correct": 1,
       "explanation": "The small intestine is lined with villi, which give a huge surface area for absorption."
     }
@@ -30,7 +40,12 @@
     "level": "KS3 Biology",
     "quiz": {
       "question": "Which of these breaks down starch into sugars?",
-      "options": ["Protease", "Lipase", "Amylase", "Bile"],
+      "options": [
+        "Protease",
+        "Lipase",
+        "Amylase",
+        "Bile"
+      ],
       "correct": 2,
       "explanation": "Amylase breaks down starch. Bile is not an enzyme: it emulsifies fats."
     }
@@ -42,7 +57,12 @@
     "level": "KS3 Biology",
     "quiz": {
       "question": "Which blood vessels carry blood away from the heart?",
-      "options": ["Veins", "Arteries", "Capillaries", "Valves"],
+      "options": [
+        "Veins",
+        "Arteries",
+        "Capillaries",
+        "Valves"
+      ],
       "correct": 1,
       "explanation": "Arteries carry blood away from the heart; veins bring it back."
     }
@@ -54,7 +74,12 @@
     "level": "Primary / KS3 Physics",
     "quiz": {
       "question": "In a simple periscope, at what angle are the two mirrors set to the tube?",
-      "options": ["30°", "45°", "60°", "90°"],
+      "options": [
+        "30°",
+        "45°",
+        "60°",
+        "90°"
+      ],
       "correct": 1,
       "explanation": "At 45° each mirror turns the light through 90°, so it travels down the tube and out to your eye."
     }
@@ -66,9 +91,15 @@
     "level": "KS3–KS4 Physics",
     "quiz": {
       "question": "A person's image on the camera screen becomes half as tall. If they haven't changed, how far away are they now?",
-      "options": ["Half as far", "The same distance", "Twice as far", "Four times as far"],
+      "options": [
+        "Half as far",
+        "The same distance",
+        "Twice as far",
+        "Four times as far"
+      ],
       "correct": 2,
       "explanation": "Image height is inversely proportional to distance, so half the image height means twice the distance."
-    }
+    },
+    "posted": "2026-10-06"
   }
 ]
