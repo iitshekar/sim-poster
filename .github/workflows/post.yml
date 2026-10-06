@@ -2,7 +2,7 @@ name: Daily simulation post
 
 on:
   schedule:
-    - cron: "0 12 * * *"   # 12:00 UTC = 4:00 pm Dubai, every day
+    - cron: "0 12 * * *"   # checks daily at 4:00 pm Dubai; posts every 3rd day
   workflow_dispatch:        # "Run workflow" button for a manual test
 
 permissions:
@@ -22,6 +22,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ vars.TELEGRAM_CHAT_ID }}
+          FORCE: ${{ github.event_name == 'workflow_dispatch' && '1' || '0' }}
         run: python post.py
       - name: Mark as posted
         run: |
