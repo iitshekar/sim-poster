@@ -1,0 +1,74 @@
+[
+  {
+    "title": "Density Lab",
+    "url": "https://iitshekar.github.io/density-lab/",
+    "text": "Weigh an object, drop it into a measuring cylinder, read the rise in water level, then work out its density. A hands-on way to practise ρ = m ÷ V and reading a meniscus.",
+    "level": "KS3 Physics",
+    "quiz": {
+      "question": "A stone has a mass of 60 g. It raises the water in a cylinder from 20 mL to 44 mL. What is its density?",
+      "options": ["0.4 g/cm³", "2.5 g/cm³", "3.0 g/cm³", "1.4 g/cm³"],
+      "correct": 1,
+      "explanation": "Volume = 44 − 20 = 24 cm³. Density = 60 ÷ 24 = 2.5 g/cm³."
+    }
+  },
+  {
+    "title": "Digestion Journey",
+    "url": "https://iitshekar.github.io/digestion-journey/",
+    "text": "Build a digestive system, then follow a sandwich from mouth to bloodstream. Students see what each organ does along the way.",
+    "level": "KS3 Biology",
+    "quiz": {
+      "question": "In which organ are most digested nutrients absorbed into the blood?",
+      "options": ["Stomach", "Small intestine", "Large intestine", "Oesophagus"],
+      "correct": 1,
+      "explanation": "The small intestine is lined with villi, which give a huge surface area for absorption."
+    }
+  },
+  {
+    "title": "Enzyme Factory",
+    "url": "https://iitshekar.github.io/enzyme-factory/",
+    "text": "Explore how bacteria and enzymes help break down food, with a short mission for each enzyme.",
+    "level": "KS3 Biology",
+    "quiz": {
+      "question": "Which of these breaks down starch into sugars?",
+      "options": ["Protease", "Lipase", "Amylase", "Bile"],
+      "correct": 2,
+      "explanation": "Amylase breaks down starch. Bile is not an enzyme: it emulsifies fats."
+    }
+  },
+  {
+    "title": "Heart Hero",
+    "url": "https://iitshekar.github.io/heart-hero/",
+    "text": "A mission-based journey through the circulatory system, made for World Heart Day.",
+    "level": "KS3 Biology",
+    "quiz": {
+      "question": "Which blood vessels carry blood away from the heart?",
+      "options": ["Veins", "Arteries", "Capillaries", "Valves"],
+      "correct": 1,
+      "explanation": "Arteries carry blood away from the heart; veins bring it back."
+    }
+  },
+  {
+    "title": "Periscope Mission",
+    "url": "https://iitshekar.github.io/periscope-mission/",
+    "text": "Learn the law of reflection, then use it to build a working periscope.",
+    "level": "Primary / KS3 Physics",
+    "quiz": {
+      "question": "In a simple periscope, at what angle are the two mirrors set to the tube?",
+      "options": ["30°", "45°", "60°", "90°"],
+      "correct": 1,
+      "explanation": "At 45° each mirror turns the light through 90°, so it travels down the tube and out to your eye."
+    }
+  },
+  {
+    "title": "Rear Guard",
+    "url": "https://iitshekar.github.io/rear-guard/",
+    "text": "Your phone camera watches behind you and speaks warnings in your earphones. It estimates distance with the pinhole camera model: the further away something is, the smaller its image.",
+    "level": "KS3–KS4 Physics",
+    "quiz": {
+      "question": "A person's image on the camera screen becomes half as tall. If they haven't changed, how far away are they now?",
+      "options": ["Half as far", "The same distance", "Twice as far", "Four times as far"],
+      "correct": 2,
+      "explanation": "Image height is inversely proportional to distance, so half the image height means twice the distance."
+    }
+  }
+]
