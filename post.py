@@ -4,10 +4,14 @@ Each simulation is posted once. posts.json is the queue: the first entry
 without a "posted" date goes out, then gets stamped with today's date.
 Add new simulations to the end of posts.json to keep the channel going.
 
+The job runs daily but only posts when EVERY_DAYS have passed since the
+last post (a manual "Run workflow" posts straight away).
+
 Settings (GitHub Secrets/Variables):
   TELEGRAM_BOT_TOKEN  the token from @BotFather (secret)
   TELEGRAM_CHAT_ID    the channel, e.g. @iitshekar_sims
   DRY_RUN=1           print instead of posting (for testing)
+  FORCE=1             post now, ignoring the gap (set for manual runs)
 """
 import datetime
 import json
@@ -17,6 +21,7 @@ import urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 QUEUE = os.path.join(HERE, "posts.json")
+EVERY_DAYS = 3
 
 
 def api(token, method, payload):
@@ -55,6 +60,14 @@ def main():
     with open(QUEUE, encoding="utf-8") as f:
         posts = json.load(f)
 
+    today = datetime.date.today()
+    dates = [datetime.date.fromisoformat(p["posted"]) for p in posts if p.get("posted")]
+    if dates and os.environ.get("FORCE") != "1":
+        gap = (today - max(dates)).days
+        if gap < EVERY_DAYS:
+            print(f"Last post was {gap} day(s) ago. Next post in {EVERY_DAYS - gap} day(s).")
+            return
+
     waiting = [p for p in posts if not p.get("posted")]
     if not waiting:
         # Fail on purpose: GitHub emails you, which is your reminder to add a simulation.
@@ -75,7 +88,7 @@ def main():
     api(token, "sendMessage", {"chat_id": chat, "text": text, "parse_mode": "HTML"})
     api(token, "sendPoll", {"chat_id": chat, **poll})
 
-    post["posted"] = datetime.date.today().isoformat()
+    post["posted"] = today.isoformat()
     with open(QUEUE, "w", encoding="utf-8") as f:
         json.dump(posts, f, ensure_ascii=False, indent=2)
         f.write("\n")
