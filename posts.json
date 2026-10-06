@@ -1,22 +1,5 @@
 [
   {
-    "title": "Density Lab",
-    "url": "https://iitshekar.github.io/density-lab/",
-    "text": "Weigh an object, drop it into a measuring cylinder, read the rise in water level, then work out its density. A hands-on way to practise ρ = m ÷ V and reading a meniscus.",
-    "level": "KS3 Physics",
-    "quiz": {
-      "question": "A stone has a mass of 60 g. It raises the water in a cylinder from 20 mL to 44 mL. What is its density?",
-      "options": [
-        "0.4 g/cm³",
-        "2.5 g/cm³",
-        "3.0 g/cm³",
-        "1.4 g/cm³"
-      ],
-      "correct": 1,
-      "explanation": "Volume = 44 − 20 = 24 cm³. Density = 60 ÷ 24 = 2.5 g/cm³."
-    }
-  },
-  {
     "title": "Digestion Journey",
     "url": "https://iitshekar.github.io/digestion-journey/",
     "text": "Build a digestive system, then follow a sandwich from mouth to bloodstream. Students see what each organ does along the way.",
@@ -31,6 +14,23 @@
       ],
       "correct": 1,
       "explanation": "The small intestine is lined with villi, which give a huge surface area for absorption."
+    }
+  },
+  {
+    "title": "Density Lab",
+    "url": "https://iitshekar.github.io/density-lab/",
+    "text": "Weigh an object, drop it into a measuring cylinder, read the rise in water level, then work out its density. A hands-on way to practise ρ = m ÷ V and reading a meniscus.",
+    "level": "KS3 Physics",
+    "quiz": {
+      "question": "A stone has a mass of 60 g. It raises the water in a cylinder from 20 mL to 44 mL. What is its density?",
+      "options": [
+        "0.4 g/cm³",
+        "2.5 g/cm³",
+        "3.0 g/cm³",
+        "1.4 g/cm³"
+      ],
+      "correct": 1,
+      "explanation": "Volume = 44 − 20 = 24 cm³. Density = 60 ÷ 24 = 2.5 g/cm³."
     }
   },
   {
@@ -99,7 +99,6 @@
       ],
       "correct": 2,
       "explanation": "Image height is inversely proportional to distance, so half the image height means twice the distance."
-    },
-    "posted": "2026-10-06"
+    }
   }
 ]
