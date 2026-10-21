@@ -104,6 +104,7 @@
       ],
       "correct": 2,
       "explanation": "Image height is inversely proportional to distance, so half the image height means twice the distance."
-    }
+    },
+    "posted": "2026-10-21"
   }
 ]
